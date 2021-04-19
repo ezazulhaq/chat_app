@@ -19,7 +19,7 @@ void main() {
   });
 
   tearDown(() async {
-    //await cleanDb(r, connection);
+    await cleanDb(r, connection);
   });
 
   test("Creates a New User Document in Database", () async {
@@ -45,6 +45,6 @@ void main() {
     await userService.connect(user);
 
     final users = await userService.online();
-    //expect(users.length, 1);
+    expect(users.length, 1);
   });
 }
