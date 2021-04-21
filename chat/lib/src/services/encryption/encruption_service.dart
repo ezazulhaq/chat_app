@@ -1,4 +1,5 @@
 import 'package:chat/src/services/encryption/encryption_service_contract.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:encrypt/encrypt.dart';
 
 class EncryptionService implements IEncryption {
