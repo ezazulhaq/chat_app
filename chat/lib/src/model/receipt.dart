@@ -16,7 +16,7 @@ class Receipt {
   final String receipient;
   final String messageId;
   final ReceiptStatus status;
-  final DateTime timestamp;
+  final String timestamp;
   String? _id;
 
   String get id => _id!;
