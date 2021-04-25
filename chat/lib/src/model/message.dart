@@ -14,7 +14,7 @@ class Message {
 
   String get id => _id;
 
-  toJson() => {
+  Map<String, dynamic> toJson() => {
         "from": this.from,
         "to": this.to,
         "timestamp": this.timestamp,

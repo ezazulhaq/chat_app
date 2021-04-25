@@ -14,7 +14,7 @@ class User {
 
   String get id => _id;
 
-  toJson() => {
+  Map<String, dynamic> toJson() => {
         "username": username,
         "photourl": photourl,
         "active": active,
