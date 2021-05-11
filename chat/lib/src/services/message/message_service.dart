@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:async';
 
 import 'package:chat/src/model/user.dart';
@@ -15,19 +14,19 @@ class MessageService implements IMessageService {
 
   final _controller = StreamController<Message>.broadcast();
   // ignore: cancel_subscriptions
-  StreamSubscription _changefeed;
+  StreamSubscription? _changefeed;
 
   MessageService(this.r, this._connection, this._encryption);
 
   @override
   dispose() {
-    if (_changefeed != null) _changefeed.cancel();
+    _changefeed!.cancel();
     _controller.close();
   }
 
   @override
-  Stream<Message> messages({User activeUser}) {
-    _startReceivingMessaged(activeUser);
+  Stream<Message> messages({User? activeUser}) {
+    _startReceivingMessaged(activeUser!);
     return _controller.stream;
   }
 

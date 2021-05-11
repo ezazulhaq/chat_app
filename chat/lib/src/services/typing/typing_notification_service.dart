@@ -1,9 +1,9 @@
-// @dart = 2.9
 import 'dart:async';
 
 import 'package:chat/src/model/user.dart';
 import 'package:chat/src/model/typing.dart';
 import 'package:chat/src/services/typing/typing_notification_service_contract.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:rethinkdb_dart/rethinkdb_dart.dart';
 
 class TypingNotificationService implements ITypingNotification {
@@ -11,14 +11,15 @@ class TypingNotificationService implements ITypingNotification {
   final Rethinkdb _r;
 
   final _controller = StreamController<TypingEvent>.broadcast();
-  StreamSubscription _changefeed;
+  // ignore: cancel_subscriptions
+  StreamSubscription? _changefeed;
 
   TypingNotificationService(this._r, this._connection);
 
   @override
   void dispose() {
-    _changefeed?.cancel();
-    _controller?.close();
+    _changefeed!.cancel();
+    _controller.close();
   }
 
   @override

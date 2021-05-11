@@ -1,9 +1,9 @@
-// @dart = 2.9
 import 'dart:async';
 
 import 'package:chat/src/model/receipt.dart';
 import 'package:chat/src/model/user.dart';
 import 'package:chat/src/services/receipt/receipt_service_contract.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:rethinkdb_dart/rethinkdb_dart.dart';
 
 class ReceiptService implements IReceiptService {
@@ -12,13 +12,13 @@ class ReceiptService implements IReceiptService {
 
   final _controller = StreamController<Receipt>.broadcast();
   // ignore: cancel_subscriptions
-  StreamSubscription _changefeed;
+  StreamSubscription? _changefeed;
 
   ReceiptService(this.r, this._connection);
 
   @override
   dispose() {
-    if (_changefeed != null) _changefeed.cancel();
+    _changefeed!.cancel();
     _controller.close();
   }
 
