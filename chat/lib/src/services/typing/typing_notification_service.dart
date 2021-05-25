@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'dart:async';
 
 import 'package:chat/src/model/user.dart';
@@ -12,13 +13,13 @@ class TypingNotificationService implements ITypingNotification {
 
   final _controller = StreamController<TypingEvent>.broadcast();
   // ignore: cancel_subscriptions
-  StreamSubscription? _changefeed;
+  StreamSubscription _changefeed;
 
   TypingNotificationService(this._r, this._connection);
 
   @override
   void dispose() {
-    _changefeed!.cancel();
+    if (_changefeed != null) _changefeed.cancel();
     _controller.close();
   }
 

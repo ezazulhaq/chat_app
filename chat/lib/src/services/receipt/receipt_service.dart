@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'dart:async';
 
 import 'package:chat/src/model/receipt.dart';
@@ -12,13 +13,13 @@ class ReceiptService implements IReceiptService {
 
   final _controller = StreamController<Receipt>.broadcast();
   // ignore: cancel_subscriptions
-  StreamSubscription? _changefeed;
+  StreamSubscription _changefeed;
 
   ReceiptService(this.r, this._connection);
 
   @override
   dispose() {
-    _changefeed!.cancel();
+    if (_changefeed != null) _changefeed.cancel();
     _controller.close();
   }
 
