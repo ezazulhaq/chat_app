@@ -53,6 +53,9 @@ class SqfLiteDatasource implements IDdataSource {
         ''',
       );
 
+      //setting NULL if chat doesn't exist
+      if (chatwithLatestMessage.isEmpty) return [];
+
       final chatwithUnreadMessages = await txn.rawQuery(
         '''
         select chat_id, count(*) as unread
@@ -85,6 +88,9 @@ class SqfLiteDatasource implements IDdataSource {
         where: "id = ?",
         whereArgs: [chatId],
       );
+
+      //setting NULL if chat doesn't exist
+      if (listOfChatMaps.isEmpty) return Chat("");
 
       final unread = Sqflite.firstIntValue(await txn.rawQuery(
         '''
