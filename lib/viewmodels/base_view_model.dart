@@ -5,7 +5,7 @@ import 'package:chat_app/models/local_message.dart';
 import 'package:flutter/material.dart';
 
 abstract class BaseViewModel {
-  IDdataSource _datasource;
+  IDataSource _datasource;
   BaseViewModel(this._datasource);
 
   @protected

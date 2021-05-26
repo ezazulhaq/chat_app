@@ -6,11 +6,11 @@ import 'package:chat_app/viewmodels/base_view_model.dart';
 
 class ChatViewModel extends BaseViewModel {
   // ignore: unused_field
-  IDdataSource _dataSource;
+  IDataSource _dataSource;
   String _chatId = "";
   int otherMessages = 0;
 
-  ChatViewModel(IDdataSource _datasource) : super(_datasource);
+  ChatViewModel(IDataSource _datasource) : super(_datasource);
 
   Future<List<LocalMessage>> getMessages(String chatId) async {
     final messages = await _dataSource.findMessage(chatId);

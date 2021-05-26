@@ -6,8 +6,8 @@ import 'package:chat_app/viewmodels/base_view_model.dart';
 
 class ChatsViewModel extends BaseViewModel {
   // ignore: unused_field
-  IDdataSource _dataSource;
-  ChatsViewModel(IDdataSource _datasource) : super(_datasource);
+  IDataSource _dataSource;
+  ChatsViewModel(IDataSource _datasource) : super(_datasource);
 
   Future<void> receivedMessage(Message message) async {
     LocalMessage localMessage =

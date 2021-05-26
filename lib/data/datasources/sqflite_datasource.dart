@@ -4,7 +4,7 @@ import 'package:chat_app/models/chat.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-class SqfLiteDatasource implements IDdataSource {
+class SqfLiteDatasource implements IDataSource {
   final Database _db;
 
   SqfLiteDatasource(this._db);
